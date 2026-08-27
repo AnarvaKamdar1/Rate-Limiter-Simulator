@@ -1,0 +1,23 @@
+Run one simulation:
+python run.py --users 50 --arrival-rate 100 --traffic poisson --algorithm token_bucket --architecture distributed --distributed-latency 10 --failure-rate 0.01 --rate-limit 50 --duration 10 --seed 42
+
+Run complete default suite:
+python all.py
+
+Query Results:
+python analyze.py --traffic ramp --arrival-rate 50 --metric p95_latency
+python analyze.py --traffic ramp --arrival-rate 50 --metric throughput
+python analyze.py --traffic ramp --arrival-rate 50 --metric acceptance_rate
+python analyze.py --traffic ramp --arrival-rate 50 --metric rejection_rate
+python analyze.py --traffic ramp --arrival-rate 50 --metric jain_fairness
+python analyze.py --traffic ramp --arrival-rate 50 --metric limit_overshoot
+
+Generate plots:
+python analyze.py --plot all
+python analyze.py --plot algorithm_latency
+python analyze.py --plot algorithm_rejection
+python analyze.py --plot algorithm_fairness
+python analyze.py --plot traffic_throughput
+python analyze.py --plot architecture_latency
+python analyze.py --plot failure_rejection
+python analyze.py --plot distributed_latency

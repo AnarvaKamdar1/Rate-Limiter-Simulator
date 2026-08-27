@@ -1,0 +1,141 @@
+Command:
+python run.py --users 50 --arrival-rate 100 --traffic poisson --algorithm sliding_window --architecture distributed --distributed-latency 10 --failure-rate 0.01 --rate-limit 50 --duration 10 --seed 42
+
+=== Configuration ===
+users:                 50
+arrival_rate:          100
+traffic_pattern:       poisson
+algorithm:             sliding_window
+architecture:          distributed
+distributed_latency:   10 ms
+failure_rate:          1.00%
+fail_closed:           True
+rate_limit:            50 requests/sec
+duration:              10 sec
+seed:                  42
+
+=== Simulation Summary ===
+total_requests:        987
+accepted:              500
+rejected:              487
+throughput:            50.000 requests/sec
+acceptance_rate:       50.659%
+rejection_rate:        49.341%
+p95_latency:           10.000 ms
+jain_fairness:         0.9134
+limit_overshoot:       0.000%
+
+Command:
+python run.py --users 50 --arrival-rate 100 --traffic poisson --algorithm token_bucket --architecture distributed --distributed-latency 10 --failure-rate 0.01 --rate-limit 50 --duration 10 --seed 42  
+
+=== Configuration ===
+users:                 50
+arrival_rate:          100
+traffic_pattern:       poisson
+algorithm:             token_bucket
+architecture:          distributed
+distributed_latency:   10 ms
+failure_rate:          1.00%
+fail_closed:           True
+rate_limit:            50 requests/sec
+duration:              10 sec
+seed:                  42
+
+=== Simulation Summary ===
+total_requests:        987
+accepted:              548
+rejected:              439
+throughput:            54.800 requests/sec
+acceptance_rate:       55.522%
+rejection_rate:        44.478%
+p95_latency:           10.000 ms
+jain_fairness:         0.9170
+limit_overshoot:       98.000%
+
+Command:
+python run.py --users 50 --arrival-rate 100 --traffic poisson --algorithm leaky_bucket --architecture distributed --distributed-latency 10 --failure-rate 0.01 --rate-limit 50 --duration 10 --seed 42
+
+=== Configuration ===
+users:                 50
+arrival_rate:          100
+traffic_pattern:       poisson
+algorithm:             leaky_bucket
+architecture:          distributed
+distributed_latency:   10 ms
+failure_rate:          1.00%
+fail_closed:           True
+rate_limit:            50 requests/sec
+duration:              10 sec
+seed:                  42
+
+=== Simulation Summary ===
+total_requests:        987
+accepted:              548
+rejected:              439
+throughput:            54.800 requests/sec
+acceptance_rate:       55.522%
+rejection_rate:        44.478%
+p95_latency:           989.349 ms
+jain_fairness:         0.9170
+limit_overshoot:       98.000%
+
+Outputs for commands mentioned in commands.txt -> Query Results:
+1. Throughput -
+## Algorithm comparison
+
+leaky_bucket       30.727 ± 1.821
+token_bucket       30.655 ± 1.718
+sliding_window     30.119 ± 1.605
+
+Winner: leaky_bucket
+Metric direction: higher is better
+
+2. Acceptance Rate - 
+## Algorithm comparison
+
+leaky_bucket       98.40% ± 0.56%
+token_bucket       98.39% ± 0.60%
+sliding_window     96.67% ± 1.67%
+
+Winner: leaky_bucket
+Metric direction: higher is better
+
+3. Rejection Rate -
+## Algorithm comparison
+
+leaky_bucket       1.60% ± 0.56%
+token_bucket       1.61% ± 0.60%
+sliding_window     3.33% ± 1.67%
+
+Winner: leaky_bucket
+Metric direction: lower is better
+
+4. P95 Latency -
+## Algorithm comparison
+
+sliding_window     4.400 ms ± 0.000 ms
+token_bucket       4.400 ms ± 0.000 ms
+leaky_bucket       126.122 ms ± 60.348 ms
+
+Winner: sliding_window
+Metric direction: lower is better
+
+5. Jain Fairness - 
+## Algorithm comparison
+
+token_bucket       0.9020 ± 0.0203
+sliding_window     0.9010 ± 0.0215
+leaky_bucket       0.9007 ± 0.0215
+
+Winner: token_bucket
+Metric direction: higher is better
+
+6. Limit Overshoot -
+## Algorithm comparison
+
+sliding_window     0.000% ± 0.000%
+token_bucket       9.336% ± 8.711%
+leaky_bucket       9.480% ± 8.917%
+
+Winner: sliding_window
+Metric direction: lower is better
