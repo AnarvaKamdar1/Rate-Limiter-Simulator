@@ -75,4 +75,28 @@ source .venv/bin/activate       # Linux/macOS
 
 pip install numpy pandas matplotlib
 ```
-hello
+Run a simulation:
+
+```bash
+python run.py
+```
+
+Run the complete experiment suite:
+
+```bash
+python all.py
+```
+
+Generate all plots:
+
+```bash
+python analyze.py --plot all
+```
+
+## Limitations
+
+- This is a simulation environment, not a production rate-limiting implementation.
+- Network latency and failures in distributed mode are modeled rather than measured from real infrastructure.
+- Results depend on the configured workload and simulation parameters.
+- The current distributed model uses fail-closed behavior.
+- The simulator focuses on a limited set of rate-limiting algorithms and traffic models.
