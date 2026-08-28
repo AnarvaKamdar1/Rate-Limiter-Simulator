@@ -47,10 +47,6 @@ The detailed implementation and methodology behind the algorithms and traffic mo
 
 The simulator generates plots from the experiment results to compare algorithms and system conditions.
 
-### Algorithm vs P95 Latency
-
-![Algorithm vs P95 Latency](plots/algorithm_vs_p95_latency.png)
-
 ### Algorithm vs Rejection Rate
 
 ![Algorithm vs Rejection Rate](plots/algorithm_vs_rejection_rate.png)
@@ -58,6 +54,10 @@ The simulator generates plots from the experiment results to compare algorithms 
 ### Traffic Pattern vs Throughput
 
 ![Traffic Pattern vs Throughput](plots/traffic_pattern_vs_throughput.png)
+
+### Algorithm vs P95 Latency
+
+![Algorithm vs P95 Latency](plots/algorithm_vs_p95_latency.png)
 
 > More detailed results and analysis can be added as the experimental evaluation evolves.
 
